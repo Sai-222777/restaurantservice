@@ -87,20 +87,20 @@ WSGI_APPLICATION = 'restaurantservice.wsgi.application'
 
 DATABASE_URL = "postgresql://postgres:RJMUbsnommWytfeMOvphfilYagubIHBG@autorack.proxy.rlwy.net:47855/railway"
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'railway',
-#         'USER': 'postgres',
-#         'PASSWORD': 'cvMjqwrMUkgHSMXDfFGaEYpyKbKDcySM',
-#         'HOST': 'postgres.railway.internal',
-#         'PORT': '5432',
-#     }
-# }
-
 DATABASES = {
-    'default': dj_database_url.config(default=DATABASE_URL,conn_max_age=1800),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'cvMjqwrMUkgHSMXDfFGaEYpyKbKDcySM',
+        'HOST': 'postgres.railway.internal',
+        'PORT': '5432',
+    }
 }
+
+# DATABASES = {
+#     'default': dj_database_url.config(default=DATABASE_URL,conn_max_age=1800),
+# }
 
 
 
