@@ -1,0 +1,50 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'users/style.css' %}">
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Home
+        </title>
+    </head>
+
+    <nav>
+        <div class="heading">
+            <h4>Restaurant Service</h4>
+        </div>
+        <ul class="nav-links">
+            <li><a class="active" href="{% url 'home_page' %}">Home</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'menu_page' %}">Menu</a></li>
+                <li><a href="{% url 'logout_user' %}">Logout</a></li>
+            {% else %}
+                <li><a href="{% url 'login_page' %}">Login</a></li>
+                <li><a href="{% url 'register_page' %}">Register</a></li>
+            {% endif %}
+            <li><a>About&nbsp;Us</a></li>
+        </ul>
+    </nav>
+
+    <body>
+
+    <div> <!-- for debugging logs --> 
+        {% if messages %} 
+            {% for message in messages %}
+            {{message}} 
+            {% endfor %}
+        {% endif %}
+    </div>
+    
+    <div class="body-text">
+        <h1>Welcome</h1>
+    </div>
+    <div class="body-text">
+        <pre><strong>Our Restaurant delivers spices
+             and freshness to your doorstep</strong></pre>
+    </div>
+
+    </body>
+</html>

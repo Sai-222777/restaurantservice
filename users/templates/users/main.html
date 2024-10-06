@@ -1,0 +1,34 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'users/style.css' %}">
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %} {% endblock %}</title>
+    </head>
+
+<nav>
+    <div class="heading">
+        <h4>Restaurant Service</h4>
+    </div>
+    <ul class="nav-links">
+        <li><a href="{% url 'home_page' %}">Home</a></li>
+        <li><a class="active" href="{% url 'menu_page' %}">Menu</a></li>
+        <li><a href="{% url 'logout_user' %}">Logout</a></li>
+        <li><a>About&nbsp;Us</a></li>
+    </ul>
+</nav>
+
+<body>
+
+
+    {% block content %}
+    
+    {% endblock %}
+
+</body>
+
+</html>
+

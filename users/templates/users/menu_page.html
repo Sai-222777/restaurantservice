@@ -1,0 +1,54 @@
+{% extends "./main.html" %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'users/style.css' %}">
+
+
+    {% block title %}Menu{% endblock %}
+
+
+    {% block content  %}
+    <!-- <section id="menu" class="menu"> -->
+        <div class="body-text">
+            <h1>Our Menu</h1>
+        </div>
+
+        <div class="body-text">
+            <div class="menu-items">
+                <div class="menu-item card">
+                    <h3>Pasta Primavera</h3>
+                    <p><small>Fresh vegetables and pasta in a light tomato sauce</small></p>
+                    <p class="price">299/-</p><br>
+                    <button class="btn" onclick="orderItem('Pasta Primavera')">Order Now</button>
+                </div>
+                <div class="menu-item card">
+                    <h3>Grilled Salmon</h3>
+                    <p><small> grilled salmon with a side of steamed vegetables</small></p>
+                    <p class="price">899/-</p><br>
+                    <button class="btn" onclick="orderItem('Grilled Salmon')">Order Now</button>
+                </div>
+                <div class="menu-item card">
+                    <h3>Caesar Salad</h3>
+                    <p><small> romaine lettuce, croutons, and Caesar dressing</small></p>
+                    <p class="price">249/-</p><br>
+                    <button class="btn" onclick="orderItem('Caesar Salad')">Order Now</button>
+                </div>
+                <div class="menu-item card">
+                    <h3>Margherita</h3>
+                    <p><small> Pizza overloaded with fresh farm cheese.</small></p>
+                    <p class="price">749/-</p><br>
+                    <button class="btn" onclick="orderItem('Margherita')">Order Now</button>
+                </div>
+            </div>
+        </div>
+    <!-- </section> -->
+
+    {% endblock %}
+
+    <script>
+        function orderItem(itemName)
+        {
+            alert('Order placed for ' + itemName);
+        }
+    </script>
+    
+    </body>

@@ -1,0 +1,71 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'users/styles1.css' %}">
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Register
+        </title>
+    </head>
+    <body>
+        
+        <nav>
+            <div class="heading">
+                <h4>Restaurant Service</h4>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home_page' %}">Home</a></li>
+                <li><a href="{% url 'login_page' %}">Login</a></li>
+                <li><a class="active" href="{% url 'register_page' %}">Register</a></li>
+                <li><a>About&nbsp;Us</a></li>
+            </ul>
+        </nav>
+
+        {% if form.errors %}
+                There was an error
+        {% endif %}
+
+        <!-- <div class="body-text">
+            
+
+                <form action="{% url 'register_page' %}" method=POST>
+                    {% csrf_token %}
+                    <label for="username" class="label_field">username</label><br>
+                    <input type="text" name="username" class="text_field" ><br>
+                    <label for="password1" class = "label_field">password</label><br>
+                    <input type="password" name="password1" class="text_field"><br>
+                    <label for="password2" class = "label_field">confirm password</label><br>
+                    <input type="password" name="password2" class="text_field"><br>
+                    <input type="submit" value="submit">
+                </form>
+        </div> -->
+
+        <div class="body-text">
+            <div class="wrapper">
+                <div class="form-box login">
+                    <h2>Register</h2>
+                    <form action="{% url 'register_page' %}" method=POST>
+                        {% csrf_token %}
+                        <div class="input-box">
+                            <input type="text" name="username" required>
+                            <label>Username</label>
+                        </div>
+                        <div class="input-box">
+                            <input type="password" name="password1" required>
+                            <label>Password</label>
+                        </div>
+                        <div class="input-box">
+                            <input type="password" name="password2" required>
+                            <label>Confrim Password</label>
+                        </div>
+                        <button type="submit" class="loginbtn">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

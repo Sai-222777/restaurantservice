@@ -1,0 +1,69 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'users/styles1.css' %}">
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="UTF-8" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            Login
+        </title>
+    </head>
+    <body>
+        
+        <nav>
+            <div class="heading">
+                <h4>Restaurant Service</h4>
+            </div>
+            <ul class="nav-links">
+                <li><a href="{% url 'home_page' %}">Home</a></li>
+                <li><a class="active" href="{% url 'login_page' %}">Login</a></li>
+                <li><a href="{% url 'register_page' %}">Register</a></li>
+                <li><a>About&nbsp;Us</a></li>
+            </ul>
+        </nav>
+
+        <div>
+            {% if messages %}
+                {% for message in messages %}
+                {{message}} 
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <!-- <div class="body-text">
+            
+            <form action="{% url 'login_page' %}" method=POST>
+                {% csrf_token %}
+                <label for="username" class="label_field">username</label>
+                <input type="text" name="username" class="text_field" ><br>
+                <label for="password" class = "label_field">password</label>
+                <input type="password" name="password" class="text_field"><br>
+                <input type="submit" value="submit">
+            </form>
+        </div> -->
+
+        <div class="body-text">
+            <div class="wrapper">
+                <div class="form-box login">
+                    <h2>Login</h2>
+                    <form action="{% url 'login_page' %}" method=POST>
+                        {% csrf_token %}
+                        <div class="input-box">
+                            <input type="text" name="username" required>
+                            <label>Username</label>
+                        </div>
+                        <div class="input-box">
+                            <input type="password" name="password" required>
+                            <label>Password</label>
+                        </div>
+                        <button type="submit" class="loginbtn">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
+
